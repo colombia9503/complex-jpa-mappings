@@ -11,7 +11,7 @@ import java.util.Set;
 @Table(name = "posts", schema = "poc_usr")
 public class Post extends AuditModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 

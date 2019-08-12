@@ -1,5 +1,7 @@
 package dev.sumana.cmappings.service;
 
-public interface CommentService {
+import dev.sumana.cmappings.model.dto.CommentDTO;
 
+public interface CommentService {
+    CommentDTO addComment(CommentDTO commentDTO) throws IllegalAccessException, InstantiationException;
 }

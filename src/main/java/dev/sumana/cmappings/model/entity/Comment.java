@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Table(name = "comments", schema = "poc_usr")
 public class Comment extends AuditModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 

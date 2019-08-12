@@ -11,7 +11,7 @@ public class CommentDTO {
 
     @NotNull
     @Size(min = 5, max = 150)
-    private Long authorEmail;
+    private String authorEmail;
 
     @NotNull
     private Long postId;
@@ -24,11 +24,11 @@ public class CommentDTO {
         this.content = content;
     }
 
-    public Long getAuthorEmail() {
+    public String getAuthorEmail() {
         return authorEmail;
     }
 
-    public void setAuthorEmail(Long authorEmail) {
+    public void setAuthorEmail(String authorEmail) {
         this.authorEmail = authorEmail;
     }
 
