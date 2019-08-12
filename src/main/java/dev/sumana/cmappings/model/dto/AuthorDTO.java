@@ -1,9 +1,13 @@
 package dev.sumana.cmappings.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class AuthorDto {
+@JsonInclude(JsonInclude.Include.NON_ABSENT)
+public class AuthorDTO {
     @NotNull
     @Size(min = 5, max = 150)
     private String name;

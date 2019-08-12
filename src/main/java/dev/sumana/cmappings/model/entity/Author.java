@@ -1,13 +1,18 @@
 package dev.sumana.cmappings.model.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "authors", schema = "poc_usr")
 public class Author extends AuditModel {
+    @Column(name = "name")
     private String name;
 
     @Id
+    @Column(name = "email")
     private String email;
 
     public String getName() {

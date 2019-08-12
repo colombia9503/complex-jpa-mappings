@@ -4,7 +4,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class CommentDto {
+public class CommentDTO {
     @NotNull
     @NotEmpty
     private String content;

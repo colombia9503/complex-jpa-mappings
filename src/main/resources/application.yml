@@ -1,3 +1,43 @@
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE
+
 server:
+  port: 9090
   servlet:
     context-path: /api/v1
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:oracle:thin:@//107.173.129.205:1521/xe
+    username: poc_usr
+    password: waFhY3scrqB6cAXc
+
+    hikari:
+      minimum-idle: 4
+      maximum-pool-size: 10
+      idle-timeout: 30000
+      pool-name: service-pool
+      max-lifetime: 200000
+      connection-timeout: 30000
+      cachePrepStmts: true
+      prepStmtCacheSize: 500
+      prepStmtCacheSqlLimit: 2048
+      useServerPrepStmts: true
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      connection:
+        provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+    properties:
+      hibernate.temp.use_jdbc_metadata_defaults: false
+      hibernate.id.new_generator_mappings: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: true
+      hibernate.dialect: org.hibernate.dialect.Oracle12cDialect
+      hibernate.query.fail_on_pagination_over_collection_fetch: true

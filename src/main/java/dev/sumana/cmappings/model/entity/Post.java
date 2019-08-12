@@ -1,15 +1,31 @@
 package dev.sumana.cmappings.model.entity;
 
-import javax.persistence.Entity;
+import org.springframework.data.util.Lazy;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "posts", schema = "poc_usr")
 public class Post extends AuditModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "title")
     private String title;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_email", nullable = false)
     private Author author;
+
+    @Column(name = "content")
     private String content;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "post")
     private Set<Comment> comments = new HashSet<>();
 
     public Long getId() {

@@ -1,12 +1,25 @@
 package dev.sumana.cmappings.model.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "comments", schema = "poc_usr")
 public class Comment extends AuditModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "content")
     private String content;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_email", nullable = false)
     private Author author;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id", nullable = false)
     private Post post;
 
     public Long getId() {
@@ -20,6 +33,7 @@ public class Comment extends AuditModel {
     public String getContent() {
         return content;
     }
+
 
     public void setContent(String content) {
         this.content = content;
